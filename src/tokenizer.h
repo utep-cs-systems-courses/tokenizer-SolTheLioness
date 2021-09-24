@@ -27,6 +27,7 @@ int count_words(char *str);
    containing <len> chars from <inStr> */
 char *copy_str(char *inStr, short len);
 
+int len (char* str);
 /* Returns a freshly allocated zero-terminated vector of freshly allocated 
    space-separated tokens from zero-terminated str.
 
@@ -36,6 +37,7 @@ char *copy_str(char *inStr, short len);
      tokens[2] = "string" 
      tokens[3] = 0
 */
+
 char **tokenize(char* str);
 
 /* Prints all tokens. */
