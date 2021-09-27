@@ -4,22 +4,10 @@
 
 int main ()
 {
-  char* res = "Hello        world this is a test";
-  printf ("%s\n", res);
-  
+  char* res = "    I'm       a        furry!    ";
   char** tokens = tokenize (res);
-  int i = 0;
-  while (tokens [i] != 0) {
-    printf ("%s\n", tokens [i]);
-    i++;
-  }
-
-
-
-
-
-
-  
+  print_tokens (tokens);
+  free_tokens (tokens);
   /* char userIn [100];
   
   while (1) {
