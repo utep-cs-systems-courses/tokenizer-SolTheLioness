@@ -3,14 +3,14 @@
 #include "tokenizer.h"
 
 int space_char (char c) {
-  if (c == '\t' || c == ' ') {
+  if (c == '\t' || c == ' ' || c == '\n') {
     return 1;
   }
   return 0;
 }
 
 int non_space_char (char c) {
-  if (c != '\t' && c != ' ' && c != '\0') {
+  if (c != '\t' && c != ' ' && c != '\n' && c != '\0') {
     return 1;
   }
   return 0;
@@ -67,11 +67,10 @@ char *copy_str (char* inStr, short len) {
 char **tokenize (char* str) {
   char** tokens = (char**) malloc ((count_words (str) + 1) * sizeof (char*));
   int i = 0;
-  
   while (count_words (str)) {
     if (space_char (str [0]))
 	str = word_start (word_terminator (str) + 1);
-	
+    int test = *word_terminator (str) + 1 - *word_start (str);
     tokens [i] = copy_str (str, word_terminator (str) + 1 - word_start (str));
     str = word_start (word_terminator (str) + 1);
     i++;
